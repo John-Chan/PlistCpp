@@ -169,9 +169,6 @@ void Date::setTimeFromXMLConvention(const std::string& timeString)
 	// parse date string.  E.g.  2011-09-25T02:31:04Z
 
 #if defined(_MSC_VER) // error C4996: 'sscanf': This function or variable may be unsafe
-	/*char buff[256] = { 0 };
-	sscanf_s(buff, "%4d-%2d-%2dT%2d:%2d:%2dZ", &year, &month, &day, &hour24, &minute, &second);
-	timeString = buff;*/
 	sscanf_s(timeString.c_str(), "%4d-%2d-%2dT%2d:%2d:%2dZ", &year, &month, &day, &hour24, &minute, &second);
 #else
 	sscanf(timeString.c_str(), "%4d-%2d-%2dT%2d:%2d:%2dZ", &year, &month, &day, &hour24, &minute, &second);
